@@ -1,0 +1,160 @@
+.page {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #f1f7fc;
+  background-image: url("/assets/images/BackGround.jpg");
+}
+
+.container {
+  width: 400px;
+  max-width: 1300px;
+  background: white;
+  outline: none;
+  padding: 0 !important;
+  border-radius: 10px;
+  margin: 0 !important;
+}
+
+.tableContainer {
+  width: 9000px;
+  max-width: 1300px;
+  background: white;
+  outline: none;
+  padding: 0 !important;
+  border-radius: 10px;
+  margin: 0 !important;
+}
+
+.form-title {
+  font-size: 22px;
+  color: #e4e4e4;
+  font-weight: bold;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #478bca;
+  border-radius: 10px 10px 0 0;
+}
+
+.formGroup {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+form {
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.divCon {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 20px;
+}
+
+label {
+  padding-left: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+input:focus {
+  border-color: #478bca;
+  outline: none;
+  background: #fff;
+}
+
+.text-danger {
+  font-size: 13px;
+  color: #a94442;
+  margin-top: 5px;
+}
+
+.btnAddEmployee {
+  background-color: #478bca;
+  color: #e4e4e4;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+button.btn {
+  background-color: #478bca;
+  color: #e4e4e4;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+button.btn:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.demo-table {
+  width: 100%;
+}
+
+.mat-mdc-header-cell {
+  text-align: center;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
+
+.mat-icon {
+  margin: 0 !important;
+}
+.table {
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.ToScroll {
+  margin-top: 150px;
+}
+.managerId {
+  display: flex;
+  flex-direction: column;
+}
+select {
+  padding: 5px;
+  border-radius: 5px;
+}

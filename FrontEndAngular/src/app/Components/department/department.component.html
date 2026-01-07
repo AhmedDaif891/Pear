@@ -1,0 +1,165 @@
+<div class="page">
+  <div class="container" *ngIf="showForm">
+    <div class="formGroup">
+      <div class="title">
+        <h2 class="form-title">Add Department</h2>
+      </div>
+
+      <div class="formContainer">
+        <form action="" (ngSubmit)="submit()" [formGroup]="departmentForm">
+          <input type="hidden" id="departmentId" />
+
+          <div class="divCon">
+            <div class="departmentName">
+              <label for="nameId">Department Name</label>
+              <input
+                id="nameId"
+                type="text"
+                formControlName="name"
+                name="name"
+                minlength="3"
+                maxlength="50"
+              />
+            </div>
+
+            <div class="text-danger">
+              @if(name?.touched&&name?.invalid) {
+              @if(name?.errors?.['required']) {
+              <p>Name is Requierd</p>
+              }
+              @if(name?.errors?.['pattern']||name?.errors?.['minlength']||name?.errors?.['maxlength']){
+              <p>
+                name must be between 3-50 characters with one space between
+                words
+              </p>
+              } }
+            </div>
+          </div>
+
+          <div class="divCon">
+            <div class="managerId">
+              <label for="mobileId">Manager</label>
+              <select
+                name=""
+                id=""
+                formControlName="managerId"
+                name="managerId"
+              >
+                <option
+                  *ngFor="let employee of employees"
+                  trackBy:trackItem
+                  [value]="employee.id"
+                >
+                  {{ employee.name }}
+                </option>
+              </select>
+            </div>
+            <div class="text-danger">
+              @if(managerId?.touched&&managerId?.invalid){
+              @if(managerId?.errors?.['required']){
+              <p>Manager Is Requierd</p>
+              }}
+            </div>
+          </div>
+
+          <div class="divCon">
+            <button
+              class="btn"
+              type="submit"
+              [disabled]="departmentForm.invalid"
+            >
+              {{ departmentForm.get("id")?.value === 0 ? "Add" : "Update" }}
+            </button>
+
+            <button
+              class="btn"
+              type="button"
+              (click)="openTheTableandCloseTheForm()"
+            >
+              Departments
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="tableContainer" *ngIf="!showForm">
+    <button
+      class="btnAddEmployee"
+      (click)="openFormAndCloseTable()"
+      *ngIf="!showForm"
+    >
+      Add Department
+    </button>
+
+    <div class="table">
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        class="at-elevation-z8 demo-table"
+      >
+        <ng-container matColumnDef="number">
+          <th mat-header-cell *matHeaderCellDef>No</th>
+          <td mat-cell *matCellDef="let element; let i = index">
+            {{ i + 1 }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="managerId">
+          <th mat-header-cell *matHeaderCellDef>Manager</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.managerId }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="updateBtn">
+          <th mat-header-cell *matHeaderCellDef>Update</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-icon-button
+              class="purple-button"
+              aria-label="Edit"
+              matTooltip="Update"
+              (click)="setDataInForm(element)"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="deleteBtn">
+          <th mat-header-cell *matHeaderCellDef>delete</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-icon-button
+              color="warn"
+              aria-label="Delete department"
+              (click)="DeleteDepartment(element.id)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayColumn"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayColumn"></tr>
+      </table>
+    </div>
+
+    <div>
+      <mat-paginator
+        class="ToScroll"
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+        aria-label="Select page of periodic elements"
+      >
+      </mat-paginator>
+    </div>
+  </div>
+</div>

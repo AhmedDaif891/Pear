@@ -1,0 +1,17 @@
+<div class="dialog-container">
+  <div class="dialog-icon">⚠️</div>
+  <h2 class="dialog-title">تأكيد</h2>
+  <p class="dialog-message">{{ data.message }}</p>
+
+  <div class="dialog-actions">
+    <button mat-button class="cancel-btn" (click)="onCancel()">إلغاء</button>
+    <button
+      mat-raised-button
+      color="primary"
+      class="confirm-btn"
+      (click)="onConfirm()"
+    >
+      تأكيد
+    </button>
+  </div>
+</div>
